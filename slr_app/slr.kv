@@ -1,0 +1,94 @@
+<StartScreen>:
+
+    AnchorLayout:
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (.7, .7)
+            spacing: 40
+            padding: 40
+
+            Label:
+                text: "Мінімізація помилки рандомізованого розвʼязку"
+
+            BoxLayout:
+                size_hint: (1, .4)
+                spacing: 40
+                padding: 40
+                orientation: "horizontal"
+
+                Button:
+                    text: "start"
+                    on_release: root.manager.current = "main_screen"
+
+
+<MainScreen>:
+
+    AnchorLayout:
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (.8, .7)
+            spacing: 40
+            padding: 40
+
+            Label:
+                text: "Введіть дані"
+
+            GridLayout:
+                cols: 2
+                rows: 2
+                spacing: 40
+                padding: 40
+
+                TextInput:
+                    id: nl
+                    multiline: False
+
+                Label:
+                    text: "Noise level"
+
+                TextInput:
+                    id: n
+                    multiline: False
+
+                Label:
+                    text: "Matrix size"
+
+            BoxLayout:
+                size_hint: (1, .6)
+                spacing: 40
+                padding: 40
+                orientation: "horizontal"
+
+                Button:
+                    text: "calculate"
+                    on_release: root.calculate()
+
+                Button:
+                    text: "back"
+                    on_release: root.manager.current = "start_screen"
+
+<ResultsScreen>:
+
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint: (1, 1)
+        spacing: 40
+        padding: 40
+
+        Image:
+            id: plot
+            size_hint: (1, 1)
+
+
+        BoxLayout:
+            size_hint: (1, .2)
+            spacing: 40
+            padding: 40
+            orientation: "horizontal"
+
+            Button:
+                text: "back"
+                on_release: root.manager.current = "main_screen"
